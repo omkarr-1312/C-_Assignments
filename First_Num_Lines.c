@@ -15,10 +15,8 @@ char** firstnumlines(FILE * inputfp, unsigned int num)
 	       headbuf[i] = calloc(SIZE,sizeof(char));
 	}
 	
-	 while(!feof(inputfp))
-	 {
-	 	fgets(headbuf[iCount],SIZE,inputfp);
-	 	
+	 while(fgets(headbuf[iCount],SIZE,inputfp) != NULL)
+	 {	 		 	
 	 	iCount++;
 	 	if(iCount == num)
 	 	{
