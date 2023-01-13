@@ -9,7 +9,7 @@
 #include<sys/errno.h>
 
 #define MAXLINE 4096
-#define LISTENQ 1024
+#define LISTENQ 1
 
 int Socket(int family,int type,int protocol)
 {
@@ -46,14 +46,17 @@ void Listen(int sockfd,int backlog)
 	}
 }
 
-void Accept(int sockfd,struct sockaddr* restrict_address,socklen_t *restrict_address_len)
-{
-	if((accept(sockfd,restrict_address,restrict_address_len)) == -1)
+int Accept(int sockfd,struct sockaddr* restrict_address,socklen_t *restrict_address_len)
+{	
+	int n = accept(sockfd,restrict_address,restrict_address_len);
+	if(n == -1)
 	{
 		fprintf(stderr,"Accept error with erron no. : %d\n",errno);
 		perror("Error Desc: \n");
 		exit(1);
 	}
+
+	return n;
 }
 
 void Connect(int sockfd,struct sockaddr* address,socklen_t address_len)
