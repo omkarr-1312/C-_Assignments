@@ -18,7 +18,7 @@ int main(int argc,char** argv)
 	//set port and IP the same as server-side:
 	bzero(&servaddr,sizeof(servaddr));
 	servaddr.sin_family = AF_INET;
-	servaddr.sin_port = htons(9999);
+	servaddr.sin_port = htons(11111);
 	//servaddr.sin_addr.s_addr = inet_addr(argv[1]);
 	
 	n = inet_pton(AF_INET,argv[1],&servaddr.sin_addr);

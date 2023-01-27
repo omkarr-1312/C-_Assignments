@@ -9,7 +9,7 @@
 #include<sys/errno.h>
 
 #define MAXLINE 4096
-#define LISTENQ 10
+#define LISTENQ 1
 
 int Socket(int family,int type,int protocol)
 {

@@ -1,9 +1,8 @@
 #include "wrapper.h"
-#include<time.h>
 
 int main(void)
 {
-	int listenfd,connfd,client_size;
+	int listenfd,connfd;
 	struct sockaddr_in servaddr,clientaddr;
 	char buff[MAXLINE];
 	
@@ -23,7 +22,7 @@ int main(void)
 	//Listen for clients:
 	Listen(listenfd,LISTENQ);
 	
-	client_size = sizeof(clientaddr);
+	int client_size = sizeof(clientaddr);
 	//Accept an incoming connection
 	connfd = Accept(listenfd,(struct sockaddr*)&clientaddr,&client_size);
 		
